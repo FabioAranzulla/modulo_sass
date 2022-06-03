@@ -1,0 +1,42 @@
+$primary-color: red;
+$title-color: green;
+$border-color: green;
+$color1: blue;
+$color2: red;
+
+div {
+    border: 1px solid $primary-color;
+
+    h1 {
+        color: $title-color;
+        border-bottom: 2px solid $color1;
+        text-align: center;
+        margin: 2rem 31rem;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    article {
+        border: 2px solid $border-color;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        width: 25%;
+        height: 150px;
+    }
+
+    .first {
+        color: $color1;
+    }
+
+    p {
+        color: $color2;
+    }
+
+
+
+}
