@@ -1,0 +1,61 @@
+$color1: red;
+$color2: green;
+$color3: blue;
+
+@mixin article-card(
+  $border: 1px solid $color2,
+  $font-size: 1rem,
+  $font-color: blue
+) {
+  border: $border;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+@mixin article-card2(
+  $border: 1px solid $color3,
+  $font-size: 1rem,
+  $font-color: green
+) {
+  border: $border;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color1;
+  gap: 1rem;
+  padding: 1rem;
+  h1 {
+    color: $color2;
+    text-decoration: underline;
+    text-decoration-color: $color3;
+  }
+  section {
+    display: flex;
+    article {
+      @include article-card;
+      padding: 2rem;
+      text-align: center;
+      p {
+        margin: auto;
+      }
+      &:nth-child(even) {
+        color: $color1;
+      }
+    }
+  }
+  section:last-child {
+    width: 100%;
+    article {
+      @include article-card2;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+}
