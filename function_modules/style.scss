@@ -1,0 +1,60 @@
+@use 'variables' as v;
+@use 'convert' as c;
+
+@mixin article-card(
+  $border: 1px solid v.$color2,
+  $font-size: 1rem,
+  $font-color: blue
+) {
+  border: $border;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+@mixin article-card2(
+  $border: c.calco(1px) solid v.$color3,
+  $font-size: c.calco(16px),
+  $font-color: green
+) {
+  border: $border;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: c.calco(1px) solid v.$color1;
+  gap: c.calco(16px);
+  padding: c.calco(16px);
+  h1 {
+    color: v.$color2;
+    text-decoration: underline;
+    text-decoration-color: v.$color3;
+  }
+  section {
+    display: flex;
+    article {
+      @include article-card;
+      padding: c.calco(32px);
+      text-align: center;
+      p {
+        margin: auto;
+      }
+      &:nth-child(even) {
+        color: v.$color1;
+      }
+    }
+  }
+  section:last-child {
+    width: 100%;
+    article {
+      @include article-card2;
+      width: 100%;
+      text-align: center;
+      font-size: c.calco(24px);
+    }
+  }
+}
