@@ -12,21 +12,6 @@ $color3: blue;
   color: $font-color;
 }
 
-@mixin article-card2(
-  $border: 1px solid $color3,
-  $font-size: 1rem,
-  $font-color: green
-) {
-  border: $border;
-  font-size: $font-size;
-  color: $font-color;
-}
-
-%h1 {
-  color: $color2;
-  text-decoration-color: $color3;
-}
-
 div {
   display: flex;
   flex-direction: column;
@@ -35,23 +20,23 @@ div {
   border: 1px solid $color1;
   gap: 1rem;
   padding: 1rem;
-  h1 {
+  & h1 {
     color: $color2;
-    text-decoration: underline;
     text-decoration-color: $color3;
+    text-decoration: underline;
   }
-  h2{
-      @extend %h1;
-      padding: 1rem;
-      border: 1px solid $color1;
+  & h2 {
+    @extend %h1;
+    padding: 1rem;
+    border: 1px solid $color1;
   }
-  section {
+  & section {
     display: flex;
-    article {
+    & article {
       @include article-card;
       padding: 2rem;
       text-align: center;
-      p {
+      & p {
         margin: auto;
       }
       &:nth-child(even) {
@@ -62,10 +47,11 @@ div {
   section:last-child {
     width: 100%;
     article {
-      @include article-card2;
       width: 100%;
       text-align: center;
       font-size: 24px;
+      color: $color2;
+      border: 1px solid $color3;
     }
   }
 }
